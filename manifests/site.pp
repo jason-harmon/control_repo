@@ -1,8 +1,13 @@
 node default {
+  file {
+    ensure => file,
+    content => 'This is a readme',
+    owner => 'root',
+  }
 }
 
-node 'puppet.centos7vm.localdomain' {
- include role::master_server
+node 'puppet' {
+  include role::master_server
 }
 
 node /^web/ {
